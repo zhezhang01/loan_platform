@@ -1,0 +1,29 @@
+server:
+  port: 8000 # server port
+
+spring:
+  profiles:
+    active: dev # environment settings
+  application:
+    name: service-gateway # service name
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.56.101:8848 # Configure nacos registry ip address
+    gateway:
+      discovery:
+        locator:
+          enabled: true # gateway can discover the mirco service in nacos registry,and generate forwarding route table
+      routes:
+        - id: service-core
+          uri: lb://service-core
+          predicates:
+            - Path=/*/core/**
+        - id: service-sms
+          uri: lb://service-sms
+          predicates:
+            - Path=/*/sms/**
+        - id: service-oss
+          uri: lb://service-oss
+          predicates:
+            - Path=/*/oss/**

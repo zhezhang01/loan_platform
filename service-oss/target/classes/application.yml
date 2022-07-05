@@ -1,0 +1,29 @@
+server:
+  port: 8130 # server port
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-oss # service name
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.56.101:8848 # Configure nacos registry ip address
+
+# Ali cloud oss configuration
+#aliyun:
+#  oss:
+#    endpoint: xxxxxx
+#    keyId: xxxxxx
+#    keySecret: xxxxxx
+#    bucketName: xxxxxx
+
+# Ali cloud oss configuration
+aliyun:
+  oss:
+    endpoint: xxxxxxxxx
+    keyId: xxxxxxxxx
+    keySecret: xxxxxxxxx
+    bucketName: srb111
+
+
